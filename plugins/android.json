@@ -1,0 +1,31 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.parentapp1.example"
+    },
+    "pushbots-cordova-plugin": {
+      "PACKAGE_NAME": "com.parentapp1.example"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.parentapp1.example"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.parentapp1.example"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.parentapp1.example"
+    },
+    "cordova-plugin-qrscanner": {
+      "PACKAGE_NAME": "com.parentapp1.example"
+    }
+  },
+  "dependent_plugins": {}
+}

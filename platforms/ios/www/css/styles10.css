@@ -1,0 +1,74 @@
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Heebo!important;
+ /* background: -webkit-linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9)!important;  /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*background: #2980B9;*/
+  height: 100%;
+}
+.orange{    font-family: Heebo;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.14;
+    letter-spacing: 0.14px;
+    text-align: left;
+    color: #e46e38;
+    margin-top: 34px; text-align: center;}
+.btn{  width: 50px;
+  height: 30px;
+  border-radius: 8px;
+  border: solid 1px #e46e38;
+  margin-top:5px;
+  margin-right:2px;
+  background-color: #ffffff; color: #e46e38;}
+  .butonat{
+    width:120px;
+    height:80px;
+   
+  
+    
+  }
+.formkyqu{margin-top: 65px;width: 33.33%; height: 38px;}
+.btn.formkyqu2{
+  font-size: small;
+}
+button.btn.formkyqu2:hover{background-color: #e46e38; color: white!important;}
+.bluish{  font-family: Heebo;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.69;
+  letter-spacing: normal;
+  text-align: left;
+  color: #e46e38;width: 62%;}
+div.col-12.d-flex{margin-top: 58px;
+ 
+}
+div.col-12.d-flex.mgt{margin-top: 10px;}
+.btn2{
+	height: 32.3px;
+  border-radius: 5px;
+  border: 1px solid #2980B9;
+  background-color: #5cc3d6;
+  color: white;
+  width: 45%;
+  font-family: Heebo;
+  
+  
+}
+div.row{justify-content: center; margin-top: 36.5px;}
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}

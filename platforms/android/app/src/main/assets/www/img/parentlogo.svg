@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Group_4" width="53.472" height="53.472" data-name="Group 4" viewBox="0 0 53.472 53.472">
+    <defs>
+        <style>
+            .cls-1{fill:#5cc3d6}.cls-2{fill:#fff}.cls-3{fill:#e46e38}
+        </style>
+    </defs>
+    <rect id="Rectangle_1" width="53.472" height="53.472" class="cls-1" data-name="Rectangle 1" rx="10"/>
+    <g id="Group_3" data-name="Group 3" transform="translate(7.083 5.897)">
+        <g id="Group_1" data-name="Group 1">
+            <ellipse id="Ellipse_1" cx="5.103" cy="4.909" class="cls-2" data-name="Ellipse 1" rx="5.103" ry="4.909" transform="translate(7.593)"/>
+            <ellipse id="Ellipse_2" cx="5.103" cy="4.909" class="cls-2" data-name="Ellipse 2" rx="5.103" ry="4.909" transform="translate(20.324)"/>
+            <path id="Path_1" d="M58.023 57.762L49.8 47.59a1.508 1.508 0 0 0-1.173-.552H26.015a1.4 1.4 0 0 0-1.25.749L19.28 58.529a1.79 1.79 0 0 0 .9 2.451 1.926 1.926 0 0 0 2.486-.823l3.8-7.191.812 6.966-1.713 14.6A2.393 2.393 0 0 0 28 77.156a2.419 2.419 0 0 0 2.433-2.078l1.451-9.128 1.5 9.125a2.42 2.42 0 0 0 2.431 2.07h.005c1.467 0 5.088.016 6.064.012a1.75 1.75 0 0 0 1.711-1.561l.949-10.041.983 10.025a1.7 1.7 0 0 0 1.728 1.5 1.693 1.693 0 0 0 1.718-1.714l-.365-10.918h3.629l-2.6-10.87 5.811 6.442a1.8 1.8 0 0 0 2.264.109 1.641 1.641 0 0 0 .311-2.367z" class="cls-2" data-name="Path 1" transform="translate(-19.086 -35.478)"/>
+        </g>
+        <g id="Group_2" data-name="Group 2" transform="translate(10.934 18.389)">
+            <ellipse id="Ellipse_3" cx="2.975" cy="2.862" class="cls-3" data-name="Ellipse 3" rx="2.975" ry="2.862" transform="translate(5.505)"/>
+            <path id="Path_2" d="M65.292 90.383a.93.93 0 0 0-.1-1.287l-4.653-4.241a1.586 1.586 0 0 0-1.067-.41h-4.9a1.586 1.586 0 0 0-1.067.41L48.858 89.1a.929.929 0 0 0-.1 1.287 1.02 1.02 0 0 0 1.358.183l3.484-2.411.58 3.993-.943 7.374a1.044 1.044 0 0 0 1.063 1.154h1.643l1.083-5.674 1.083 5.674h1.832a.881.881 0 0 0 .9-.975l-.966-7.554.58-3.993 3.483 2.407a1.02 1.02 0 0 0 1.354-.182z" class="cls-3" data-name="Path 2" transform="translate(-48.548 -77.39)"/>
+        </g>
+    </g>
+</svg>

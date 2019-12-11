@@ -1,0 +1,90 @@
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Heebo!important;
+  /*background: -webkit-linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9)!important;  /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*background: #2980B9;*/
+  height: 100%;
+}
+
+
+.orange{ 
+  font-size:14px;
+  line-height: 1.20;
+  letter-spacing: 0.14px;
+  text-align: left;
+  color:#e46e38;
+  margin-top: 78px; 
+  text-align: center;
+  font-family: Heebo;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+
+}
+
+.dergo{
+  border: 1px solid #e46e38;
+  font-family: Heebo;
+  
+}
+
+.rectangle{
+  height: 140px;
+  border: solid 1px #e46e38;
+  background-color: #ffffff;
+  margin-top: 39px; width: 82%;
+}
+
+.sygjerime{
+  width: 202px;
+  height: 37px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.69;
+  letter-spacing: normal;
+  text-align: left;
+  color: #bfbfbf;
+  padding-top: 10px;
+}
+
+.btn{
+  width: 85.2px;
+  height: 36px;
+  background-color: rgb(109, 185, 211); 
+  color: white; 
+  border: 1px solid rgb(187, 214, 223);
+  border-radius:8px;
+  margin-top: 33.7px;
+  font-family: Heebo;
+}
+
+
+
+
+.footeri{
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  width: 100%;
+  background-color: #5cc3d6;
+}
+
+input{
+  width: 256.3px;
+  height: 138px;
+}
+
+textarea{
+  width: 80%;
+  padding: 6px!important;
+}
+
+.gixinput{
+  border: 1px solid #e46e38;
+}

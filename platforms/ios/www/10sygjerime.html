@@ -1,0 +1,70 @@
+<script src="js/base_urlJS.js"></script>
+<script src="js/includeJS.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles9.css" type="text/css">
+  <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+
+  <title>SYGJERIME.MOB</title>
+</head>
+<body>
+	<div class="container">
+<div inculdeWithHTML="sidebar.html"></div>
+	<script src="js/sidebar.js"></script>
+
+		<div class="col-12">
+			<p class="orange">Sygjerimet nga ana juaj</p>
+		</div>
+		<div class="col-12" align="center">
+
+				<textarea class="gixinput" id="suggestion" required rows="7" placeholder="Sygjerimet, kritikat dhe ndryshimet për zhvillim të aplikacionit"></textarea>
+
+			<button type="button" class="btn formkyqu dergo">Dërgo</button>
+
+		</div>
+	</div>
+</body>
+<footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="js/sidebar.js"></script>
+	
+
+	<script>
+	var token = localStorage.getItem('token')
+    
+	if(token==null){
+		window.location.href='index.html';
+	}
+	
+	$('.dergo').on("click", function(){
+		var message = $('#suggestion').val();
+
+		$.ajax({
+			url: globalURL+'storeSuggestion',
+			type: 'POST',
+			headers: {
+			'Authorization': 'Bearer ' + token,
+			'Accept' : 'application/json',
+			},
+			data: {
+				message: message
+			},
+			success: function (data) {
+				alert('Sygjerimi u ruajt me sukses');
+			},
+			error: function (error) {
+			}
+		});
+	});
+	</script>
+
+</footer>
+<script>
+includeHTML();
+</script>
+</html>

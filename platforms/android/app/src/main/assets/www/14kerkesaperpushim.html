@@ -1,0 +1,141 @@
+<script src="js/base_urlJS.js"></script>
+<script src="js/includeJS.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/styles13.css" type="text/css">
+  <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+  <link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+  <script src="jQuery.ui.datepicker.js"></script>
+  <script src="jquery.ui.datepicker.mobile.js"></script>
+  <title>PUSHIMKERKESA.MOB</title>
+</head>
+<body>
+	<div class="container-fluid">
+	<div inculdeWithHTML="sidebar.html"></div>
+		<div class="scan-padding">
+			<p class="orange">Kerkesa per pushim</p>
+			<p class="orange2">Ju lutemi zgjedhni femijen!</p>
+		</div>
+		<div class="profilet">
+			
+		</div>
+		<p class="orange2 mt-5">Zgjedh datat e pushimit te kerkuar!</p>
+		<div class="col jcc" align="center">
+			<!-- <input type="text" class="form-control2 margright from_date" name="from_date" placeholder="Nga"/> -->
+			<input type="date" name="date" id="date" value="" class="form-control gixinput" format="yyyy-mm-dd" placeholder="Prej:"/>
+			<input type="date" name="date" id="date1" value="" class="form-control gixinput" format="yyyy-mm-dd" placeholder="Deri:"/>
+		</div>
+		<div class="col mt-5" align="center">
+			<button type="button" class="btn2 dergo">Dergo per aprovim</button>
+			<div class="alerti"></div>
+		</div>
+		<div class="col">
+			<p class="orange2 margtop2">Kerkesa juaj dergohet per aprovim tek<br>Pool i drejtoris se shkolles.</p>
+		</div>
+	</div>
+</body>
+<footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+	<script src="js/sidebar.js"></script>
+	<script type='text/javascript'>
+	$(function(){
+		$('.input-daterange').datepicker({
+			autoclose: true
+		});  
+	});
+
+	var token = localStorage.getItem('token')
+	var options = '<option disabled selected>Zgjedh studentin</option>';
+    
+	if(token==null){
+		window.location.href='index.html';
+	}
+	
+	$.ajax({
+			url: globalURL+'profiles',
+			type: 'POST',
+			headers:{
+			'Authorization': 'Bearer ' + token,
+			'Accept' : 'application/json',
+			},
+			success: function (data) {
+				data.forEach(row => {
+					options += '<option id="'+row.id+'" value="'+row.name+'">'+row.name+'</option>';
+				});		
+				$('.profilet').append('<div class="col margtop" align="center"><select style="background:white" class="form-control studentet gixinput" name="studentet">'+options+'</select></div>');
+			},
+			error: function (error) {
+			}
+	});
+
+	$('.dergo').click(function(){
+		var from_date = $('.from_date').val()
+		var to_date = $('.to_date').val()
+		var student_id = $('.studentet').children(":selected").attr("id");
+		if((student_id!=null || student_id!=undefined) && from_date!='' && to_date!='')
+		{
+			console.log(student_id+to_date+from_date)
+			$.ajax({
+				url: globalURL+'storeVacation',
+				type: 'POST',
+				headers:{
+				'Authorization': 'Bearer ' + token,
+				'Accept' : 'application/json',
+				},
+				data:{
+					student_id:student_id,
+					from_date:from_date,
+					to_date:to_date
+				},
+				success: function (data) {
+					$('.alerti').append('<div style="margin-top:5%" class="alert alert-success"><strong>Kerkesa juaj u realizua me sukses</strong></div>')
+					setTimeout(() => {
+						$('.alert').remove()
+					}, 3000);	
+				},
+				error: function (error) {
+					$('.alerti').append('<div style="margin-top:5%" class="alert alert-danger"><strong>Ka një problem, kerkesa juaj nuk u realizua!</strong></div>')
+					setTimeout(() => {
+						$('.alert').remove()
+					}, 3000);
+				}
+			});
+		}else{
+			$('.alerti').append('<div style="margin-top:5%" class="alert alert-danger"><strong>Zgjedhni studentin ose datat!</strong></div>')
+			setTimeout(() => {
+				$('.alert').remove()
+			}, 3000);
+		}
+
+	});
+
+	$(function(){
+		$("#datepicker1").datepicker({
+			orientation: "right bottom",
+			dateFormat: 'dd-mm-yy',
+			autoclose: true
+		});
+	});
+
+	//reset type=date inputs to text
+	$( document ).bind( "mobileinit", function(){
+		$.mobile.page.prototype.options.degradeInputs.date = true;
+	});	
+
+</script>
+</footer>
+<script>
+includeHTML();
+</script>
+</html>

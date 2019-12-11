@@ -1,0 +1,57 @@
+<script src="js/base_urlJS.js"></script>
+<script src="js/includeJS.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles1.css" type="text/css">
+  <title>CONFIRM.MOB</title>
+</head>
+<body>
+    <div class="container-fluid" style="padding: 0;">
+    <!-- <div inculdeWithHTML="sidebar.html"></div> -->
+      <div class="eclipse" align="center">
+        <p class="pfont">Vendos kodin e pranuar në SMS</p>
+        <input type="text" name="mycode" id="pincode-input1"><br>
+        <button type="button" class="btn formkyqu margtop">Konfirmo</button>
+        <a href=""><p class="transparent">Ridërgo sms</p></a>
+      </div>
+      <div class="txt mrg-verification" align="center">
+        <p class="txt1">1. Konfirmimi i aktivizimit të profilit të nxënësit</p>
+        <p class="txt2">2. Verifikimi bëhet për cdo femijë</p>
+      </div>
+      <div class="cartoon tcenter">
+        <img src="img/femijet2.svg" class="femiu">
+      </div>
+    </div>
+</body>
+<footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/bootstrap-pincode-input.js"></script>
+    <script type="text/javascript">
+          $('#pincode-input1').pincodeInput({inputs:4});
+          $('#pincode-input1').pincodeInput({inputs:2,placeholders:"0 0 0"});
+          $('#pincode-input1').pincodeInput({inputs:4,hidedigits:false});
+          $('#pincode-input1').pincodeInput({keydown:function(e){
+        console.log("keydown event fired!",e);
+          $('#pincode-input1').pincodeInput({inputs:4,change: function(input,value,inputnumber){
+            console.log("onchange from input number "+inputnumber+", current value: " + value, input);
+          }});
+            $('#pincode-input1').pincodeInput({inputs:6,complete:function(value, e, errorElement){
+            console.log("code entered: " + value);
+            
+            /*do some code checking here*/
+            
+            $(errorElement).html("I'm sorry, but the code not correct");
+          }});
+          }});
+
+</script>
+</footer>
+<script>
+includeHTML();
+</script>
+</html>

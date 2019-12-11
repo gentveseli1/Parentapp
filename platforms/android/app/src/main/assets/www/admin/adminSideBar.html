@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Hide/show menu</title>
+ <link rel="stylesheet" href="../css/adminSideBarCSS.css" type="text/css">
+ <script type="text/javascript">
+  function toggleSidebar(){
+   document.getElementById("sidebar").classList.toggle('active');
+  }
+ </script>
+</head>
+<body>
+    <div id = "header">
+        <span></span>
+    </div>
+    <div id ="trrupi"></div>
+ <div id="sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <a>
+            <span></span>
+            <span></span>
+        </a>
+    </div>
+    <h5>Parent Control</h5>
+    <ul style = "border: 0;">
+        <li>*Nxenesit-Lista</li>
+        <li>* Dashboard</li>
+        <li class="nested">^ MASHT</li>
+    </ul>
+ </div>
+ 
+</body>
+<script>
+includeHTML();
+</script>
+</html>

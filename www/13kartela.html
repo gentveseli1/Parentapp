@@ -1,0 +1,143 @@
+<script src="js/base_urlJS.js"></script>
+<script src="js/includeJS.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles12.css" type="text/css">
+  <link rel="stylesheet" href="css/styles13.css" type="text/css">
+  <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+
+  <title>KARTELA.MOB</title>
+</head>
+<body>
+	<div class="container-fluid">
+	<div inculdeWithHTML="sidebar.html"></div>
+		<div class="new-card">
+			<p class="orange">Kerkesa per kartele e re</p>
+			<p class="orange2">Ju lutemi zgjedhni femijen!</p>
+		</div>
+		<div class="profilet">
+			
+		</div>
+
+		<div class="col margtop3" align="center">
+			<p class="orange2">Te dhenat mbushen ne baze te informatave te femijes</p>
+			<div class="inputes">
+				<button type="button" class="btn2 formkyqu porosit_btn mt-3">Porosit kartelen</button>
+				<div class="alerti"></div>
+			</div>
+		</div>
+		<ul class = "news">
+			
+
+		</ul>
+	</div>
+</body>
+<footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+	<script src="js/sidebar.js"></script>
+
+<script type='text/javascript'>
+
+	var token = localStorage.getItem('token')
+	var options = '<option disabled selected>Zgjedh studentin</option>';
+    
+	if(token==null){
+		window.location.href='index.html';
+	}
+	
+		$.ajax({
+			url: globalURL+'profiles',
+			type: 'POST',
+			headers:{
+				'Authorization': 'Bearer ' + token,
+				'Accept' : 'application/json',
+			},
+			success: function (data) {
+				data.forEach(row => {
+					options += '<option id="'+row.id+'" value="'+row.name+'">'+row.name+'</option>';
+				});
+				$('.profilet').append('<div class="col margtop" align="center"><select style="background:white; border: 1px solid #e46e38;" class="form-control studentet" name="studentet">'+options+'</select></div>');
+			},
+			error: function (error) {
+			}
+      	});
+
+		$(document).on('change', '.studentet', function(){
+			var id = $(this).children(":selected").attr("id");
+			$('.inputes input').remove()
+			$.ajax({
+				url: globalURL+'get_profile/'+id,
+				type: 'GET',
+				headers:{
+					'Authorization': 'Bearer ' + token,
+					'Accept' : 'application/json',
+				},
+				success: function (data) {
+						$('.inputes').prepend('<input type="text" class="form-control margtop4" placeholder="Emri dhe Mbiemri" value="'+data.name+'"><input type="text" class="form-control margtop5" value="'+data.birthdate+'" placeholder="Ditelindja e nxenesit"><input type="text" class="form-control margtop5" value="'+data.parentName+'" placeholder="Emri i Prindit"><input type="text" class="form-control margtop5" value="'+data.school_id+'" placeholder="Shkolla"><input type="text" class="form-control margtop5" value="'+data.class+'" placeholder="Klasa">');							
+				},
+				error: function (error) {
+				}
+			});
+
+			
+		});
+
+		$.ajax({
+				url: globalURL+'myCardRequests',
+				type: 'POST',
+				headers:{
+					'Authorization': 'Bearer ' + token,
+					'Accept' : 'application/json',
+				},
+				success: function (data) {
+					data.forEach(row => {
+
+						if(row.status == 0){
+							$('.news').append('<li style="text-align:center;" class="blue mgb msg">Kerkesa juaj per kartel ende nuk eshte shqyrtuar</li>');	
+						}else if(row.status == 1){
+							$('.news').append('<li style="text-align:center;" class="blue mgb msg">Kartela qe ju keni kerkuar eshte ne perfundim</li>');
+						}else if(row.status == 2){
+							$('.news').append('<li style="text-align:center;" class="blue mgb msg">Kartela qe ju keni kerkuar eshte perfunduar</li>');
+						}else if(row.status == 3){
+							$('.news').append('<li style="text-align:center;" class="blue mgb msg">Kerkesa juaj per kartel eshte anuluar</li>');
+						}
+					});
+				},
+		});
+
+		$('.porosit_btn').click(function(){
+			var id = $('.studentet').children(":selected").attr("id");
+			$.ajax({
+			url: globalURL+'storeCard',
+			type: 'POST',
+			headers:{
+				'Authorization': 'Bearer ' + token,
+				'Accept' : 'application/json',
+			},
+			data: { student_id: id},
+			success: function (data) {
+				$('.alerti').append('<div style="margin-top:5%" class="alert alert-success"><strong>Kerkesa juaj u realizua me sukses</strong></div>')
+				setTimeout(() => {
+					$('.alert').remove()
+				}, 3000);
+			},
+			error: function (error) {
+				$('.alerti').append('<div style="margin-top:5%" class="alert alert-danger"><strong>Ka një problem, kerkesa juaj nuk u realizua!</strong></div>')
+				setTimeout(() => {
+					$('.alert').remove()
+				}, 3000);
+			}
+      	});
+		});
+</script>
+</footer>
+<script>
+includeHTML();
+</script>
+</html>

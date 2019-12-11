@@ -1,0 +1,395 @@
+* {box-sizing: border-box;}
+
+html{
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Heebo!important;
+  height: 100vh;
+}
+
+.container-fluid{
+  height: 100vh;
+}
+
+.txttype{  
+  font-family: Heebo;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.46;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff; 
+  padding-top: 55px;
+  margin: 0;
+}
+
+.ballina{
+	width: 100%;
+}
+
+#profile-container{
+  width: 48px;
+  height: 48px;
+  margin-right: 5px;
+}
+
+.divstudentat{
+  justify-content: flex-start!important;
+  width: 75%!important;
+  height: 80px;
+}
+
+#profileImage{
+    cursor: pointer;
+}
+
+p.txttype{
+  margin-bottom: 42px!important;
+}
+
+.jc{
+  justify-content: space-between; 
+}
+
+#imageUpload{
+    display: none;
+}
+
+/* .footeri{ position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 56px;
+  background-color: #e46e38;
+  text-align: right;
+} */
+
+.profilfont{  
+  font-family: Heebo;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  padding: 2px 2px 2px 10px;
+  letter-spacing: normal;
+  text-align: center;
+  margin: 8px 1px 1px 1px;
+  color: #e46e38!important;
+}
+
+.btn{
+  background-color: #ffffff!important;
+  border: 1px solid #e46e38!important;
+  width: 60%;
+  height: 50px;  
+  font-family: Heebo!important;
+  
+}
+
+.formkyqu{
+  width: 40%;
+  height: 40px;
+  border-radius: 8px;
+  color: #e46e38!important;
+  
+  
+  }
+
+.imgradius{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+#profile-container1{
+  position: relative;
+  bottom: 10%;
+  padding-right: 4px;
+}
+
+#profile-container2{
+  position: relative;
+  bottom: 10%;
+  padding-right: 4px;
+}
+
+#profile-container3{
+  position: relative;
+  bottom: 10%;
+  padding-right: 4px;
+}
+
+@media only screen and (max-device-height: 568px){
+  p.txttype{
+    font-size: 21px;
+  }
+
+  p.profilfont{
+    font-size: 16px;
+  }
+
+  .formkyqu{
+    margin-top: 12%;
+    font-size: 12px;
+  }
+
+}
+@media only screen and (min-device-height: 570px) and (max-device-height: 640px){
+  p.txttype{
+    font-size: 22px;
+  }
+
+  p.profilfont{
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  p.txttype{
+    font-size: 50px;
+    font-weight: 200;
+  }
+
+  p.profilfont{
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  .formkyqu{
+    margin-top: 32%;
+    font-size: 12px;
+  }
+
+  .imgradius{
+    width: 60px;
+    height: 60px;
+  }
+
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  bottom: 4.5%;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 20px;
+  height: 3px;
+  background-color: #5cc3d6;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.textchange{font-family: Heebo!important; width: 36%; font-weight: bold;}
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+.change .bar2 {opacity: 0;}
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+#imageUpload
+{
+    display: none;
+}
+
+#profileImage
+{
+    cursor: pointer;
+}
+
+#profile-container {
+    width: 150px; 
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.wid100{
+  width: 100%!important;
+}
+#profile-container img {
+    width: 150px;
+    height: 150px;
+}
+.form-control{
+  display: block;
+    width: 70%;
+    height: 36px;
+    margin-top: 18px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+  border-radius: 8px;
+    background-color: #eaeaea;
+    text-align: center;
+    font-family: Heebo!important;
+}
+.margtop2{margin-top: 25px;}
+.margtop{
+  margin-top: 12px;
+}
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+div.orari.d-flex{
+  width: 70%;
+  margin-top: 13px;
+}
+.bluish{font-family: Heebo;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  color: #5cc3d6; margin-top: 30px;
+}
+.orangish{font-family: Heebo; margin: 0;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  color: #e46e38;}
+
+.footeri{bottom: 0;
+  text-align: right;
+  position: absolute;
+  width: 100%;
+  height: 59px;
+  background-color: #5cc3d6;
+}
+.x {
+  width: 25px;
+  height: 3px;
+  background-color: #5cc3d6;
+  margin: 6px 0;
+  position: relative;
+  right: 45%;
+}
+
+.form-control2{
+  display: block;
+    width: 35%!important;
+    height: 36px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+  border-radius: 8px;
+    background-color: #eaeaea;
+    text-align: center;
+    font-family: Heebo!important;
+}
+button:hover{background-color: #e46e38!important; color: white!important;}
+button{
+  background-color: transparent!important;
+  color: #e46e38!important;
+
+
+
+ 
+}
+
+#warning-container{
+  position: absolute;
+    display: block;
+    z-index: 2147483647;
+    width: 100%;
+    height: 0px;
+    transition: all 0.5s ease 0s;
+}
+
+.inputday{
+  border-bottom: 1px;
+}
+
+.logout{
+  background-color: #DCDCDC!important;
+  color: #5cc3d6!important;
+  border-radius: 15%;
+  width: 100px;
+  margin: 15px 10px 2px 10px;
+  border-radius: 1px;
+}
+
+#preview{
+  width: 100%;
+}
+
+.button-r{
+  height: 100px; justify-content: center;
+ 
+
+}

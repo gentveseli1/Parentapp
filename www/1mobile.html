@@ -1,0 +1,168 @@
+<script src="js/base_urlJS.js"></script>
+<script src="js/includeJS.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <title>ParentApp.MOB</title>
+</head>
+<body>
+  <div class="container">
+    <div class="col-12" align="center">
+      <div class="bsquare">
+        <img src="img/parentlogo.svg" class="mainlogo">
+      </div>
+
+      <p class="parentapp">Parent App</p>
+        <div class="register-form">
+        <input type="text" name="emri" class="form-control margtop" placeholder="Emri dhe mbiemri" id="name">
+        <div class="errormsg"></div>
+
+        <input type="password" name="pwd" class="form-control mtop" maxlength="4" id="pin" pattern="\d{4}" placeholder="Password">
+        <div class="errormsg1"></div>
+
+        <input type="tel" name="number" class="form-control mtop" placeholder="Numri i telefonit" id="number" pattern="^\+383[0-9]{2}[0-9]{3}[0-9]{3}">
+        <div class="errormsg2"></div>
+
+        <input type="email" name="email" class="form-control mtop" placeholder="Email" id="email">
+        <div class="errormsg3"></div>
+
+      <div class="buttonat dfc">
+        <!-- <button type="button" class="btn formkyqu2 margtop2">QR Code</button> -->
+        <button type="button" class="btn formkyqu margtop2" id="register">Regjistrohu</button>
+        <div class="errormsg4"></div>
+     </div>
+      </div>
+
+    </div>
+
+      <div class="infos" align="center">
+        <p class="ngt">New Generation Technology SH.P.K</p>
+        <span class="dfc">
+          <p class="ngt2">+383 (0) 49 123 456</p>
+          <p class="ngt2">you@email.com</p>
+        </span>
+      </div>
+  </div>
+    <div class="eclipse" align="center">
+       <img src="img/femijet.svg" class="femiu">    
+    </div>
+
+</body>
+<footer align="center">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#register").click(function(event){
+        var register;
+        var name = $('#name').val();
+        var pass = $('#pin').val();
+        var number = $('#number').val();
+        var email = $('#email').val()
+
+        var data = {
+                    name : name,
+                    password : pass,
+                    phone : number,
+                    email : email 
+        }
+
+        console.log(data)
+
+        $.ajax({
+             url: globalURL+'register',
+             type: 'POST',
+             data : { name : name,
+                      password : pass,
+                      phone : number,
+                      email : email      
+                    },
+             success: function (data) {
+                 // localStorage.setItem("token", data['success']['token']);
+             },
+             error: function (error) {
+             }
+          });
+
+      });
+
+      $("#number").on("keyup paste", function() {
+    // Remove invalid chars from the input
+        var input = this.value.replace(/[^0-9\(\)\s\-]/g, "");
+        var inputlen = input.length;
+        // Get just the numbers in the input
+        var numbers = this.value.replace(/\D/g,'');
+        var numberslen = numbers.length;
+        // Value to store the masked input
+        var newval = "";
+
+
+        // Loop through the existing numbers and apply the mask
+        for(var i=0;i<numberslen;i++){
+            if(i==0) newval="(+"+numbers[i];
+            else if(i==3) newval+=") "+numbers[i];
+            else if(i==5) newval+="-"+numbers[i];
+            else if(i==8) newval+="-"+numbers[i];
+            else newval+=numbers[i];
+        }
+
+        // Re-add the non-digit characters to the end of the input that the user entered and that match the mask.
+        if(inputlen>=1&&numberslen==0&&input[0]=="(") newval="(";
+        else if(inputlen>=6&&numberslen==3&&input[4]==")"&&input[5]==" ") newval+=") ";
+        else if(inputlen>=5&&numberslen==3&&input[4]==")") newval+=")";
+        else if(inputlen>=6&&numberslen==3&&input[5]==" ") newval+=" ";
+        else if(inputlen>=9&&numberslen==6&&input[9]=="-") newval+="-";
+
+
+        $(this).val(newval.substring(0,17));
+      });
+    });
+
+    $("#name").click(function() {
+        $('div.errormsg').show();
+        $('div.errormsg').html('Emri dhe mbiemri i prindit!');
+    });
+
+    $('#name').on("keyup", function(){
+        $('div.errormsg').hide();
+    });
+
+    $("#pin").on("keyup" ,function(){
+      
+      if(this.value.length < 4){
+        $('div.errormsg1').show();
+        $('div.errormsg1').html('PIN duhet të jetë me 4 shifra');  
+      }
+
+      if(this.value.length > 3){
+        $('div.errormsg1').hide();
+      }  
+    });
+
+    $("#email").click(function() {
+        $('div.errormsg3').show();
+        $('div.errormsg3').html('Email duhet të ketë \'@\' \'.com\'');
+    });
+
+    $('#email').on("keyup", function(){
+        $('div.errormsg3').hide();
+    });
+
+    $(document).ready(function(){
+       $('#register').click(function(){
+            if ($('input').val() == ""){
+              $('div.errormsg4').show();
+              $('div.errormsg4').html('Mbushni te gjitha fushat para regjistrimit!')
+            }
+        });
+    });
+  </script>
+</footer>
+<script>
+includeHTML();
+</script>
+</html>

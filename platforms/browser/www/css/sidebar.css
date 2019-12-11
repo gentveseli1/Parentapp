@@ -1,0 +1,284 @@
+a{
+  font-family: Heebo;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #2a2b2f;
+}
+/* .formkyqu{
+	width: 50%;
+	font-family: Heebo!important;
+  	border-radius: 3px;
+  	border: solid 1px #e46e38;
+} */
+
+/* .btn{
+	color: #e46e38!important;
+  width: 75%;
+} */
+
+a:hover{
+  color: #e46e38;
+  text-decoration: none;
+}
+
+.margtop100{
+  margin-top: 100%;
+}
+
+.margtop15{
+  margin-top: 15%;
+}
+
+.logout{
+  background-color: #DCDCDC!important;
+  color: #5cc3d6!important;
+  border-radius: 15%;
+  width: 100px;
+  margin: 15px 10px 2px 10px;
+  border-radius: 1px;
+}
+.bbros-side-bar{
+  padding: 50px 20px 50px 50px;
+  width: 75%;
+  height: calc(100vh - 59px);
+  box-shadow: 0px 0px 5px #cecece;
+  position: fixed;
+  top:0px;
+  bottom: 0;
+  left: -75%;
+  transition: all 0.3s;
+  z-index: 9999;
+  background-color: #fff;
+  height: 100%;
+}
+.bbros-side-bar ul{
+  padding-left:0px;
+  list-style: none;
+}
+
+.main-sidebar{
+  margin-bottom: 20px;
+}
+
+.hamburger{
+  position: absolute;
+  top:20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.hamburger div{
+  width: 35px;
+  height: 5px;
+  background-color:#5cc3d6;
+  margin: 6px 0;
+}
+
+.bbros-close{
+  color:#5cc3d6;
+  font-size: 32px !important;
+  position: absolute;
+  right: 37px;
+  top: 20px;
+  transition: all 0.9s;
+  opacity: 0;
+  visibility: hidden;
+  line-height: 1;
+}
+
+.last-li:last-child { position: absolute; bottom: 0; margin-bottom: 30px;}
+
+.settings{
+  font-size: 14px;
+  font-weight: 400;
+  height: 35px;
+}
+
+img{
+  width: 20px;
+  height: 20px;
+
+}
+
+li{
+  text-align: left;
+}
+
+.favicon{
+  margin-right: 5px;
+}
+
+.dashboard-button{
+  color: #e46e38!important;
+  width: 80%;
+  font-family: Heebo!important;
+  font-size: 18px;
+  border-radius: 3px;
+  border: solid 1px #e46e38;
+  height: 40px;
+  background: white;
+}
+
+.fa-times:before {
+  content: "\f00d";
+}
+
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+  background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 150ms infinite linear;
+  -moz-animation: spinner 150ms infinite linear;
+  -ms-animation: spinner 150ms infinite linear;
+  -o-animation: spinner 150ms infinite linear;
+  animation: spinner 150ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 768px){
+
+  .settings{
+    font-size: 25px;
+    font-weight: 300;
+  }
+
+  img.favicon{
+    width: 35px;
+    height: 35px;
+  }
+
+  .last-li:last-child{
+    margin: 1px 1px 80px 1px;
+  }
+  .main-sidebar{
+    margin-bottom: 40px;
+  }
+
+  .dashboard-button{
+    height: 60px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-height: 568px){
+
+  .dashboard-button{
+    height: 40px!important;
+    width: 80%;
+    font-size: 14px!important;
+  }
+}

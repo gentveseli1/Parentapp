@@ -1,0 +1,42 @@
+<script src="js/base_urlJS.js"></script>
+<script src="js/includeJS.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles14.css" type="text/css">
+  <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+  <title>QRcode.MOB</title>
+</head>
+<body>
+	<div class="container-fluid">
+	<div inculdeWithHTML="sidebar.html"></div>
+		<div class="scan-padding">
+			<p class="scancode">Skano QR Code</p>
+		</div>
+		<div class="col margtop4" align="center">
+			<img src="" style="width: 217px; height: 217px;">
+		</div>
+		<div class="col" align="center">
+			<button type="button" class="btn margtop2">Kyqu</button>
+		</div>
+	</div>
+</body>
+<footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="js/sidebar.js"></script>
+	<script>
+		var token = localStorage.getItem('token')
+    
+		if(token==null){
+			window.location.href='index.html';
+		}
+	</script>
+</footer>
+<script>
+includeHTML();
+</script>
+</html>

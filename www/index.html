@@ -1,0 +1,180 @@
+<script src="js/base_urlJS.js"></script>
+<script src="js/includeJS.js"></script>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>ParentApp.MOB</title>
+</head>
+<body>
+  <div class="container">
+    <div class="col-12" align="center">
+    
+      <div class="bsquare">
+        <img src="img/parentlogo.svg" class="mainlogo">
+      </div>
+
+      <p class="parentapp">Parent App</p>
+      <div id="deviceready" class="blink"></div>
+      <div class="login-form">
+        <!-- <input type="tel" name="phone" class="form-control mtop validate" placeholder="Numri i telefonit" id="number" required> -->
+
+        <input type="email" name="email" class="form-control mtop validate" placeholder="Email" id="email" required/>
+        <div class="errormsg1"></div>
+
+        <input type="password" name="pwd" class="form-control mtop validate" maxlength="4"  id="pin" pattern="\d{4}" placeholder="Password" required/>
+        <div class="errormsg2"></div>
+
+        <div class="buttonat dfc">
+          <!-- <button type="button" class="btn formkyqu2 margtop2">QR Code</button> -->
+          <button type="button" class="btn formkyqu margtop2 login" id="login">Kyçu</button>
+          <div class="alerti"></div>
+        </div>
+      </div>
+    </div>
+
+      <div class="infos" align="center">
+        <p class="ngt">New Generation Technology SH.P.K</p>
+        <span class="dfc">
+          <p class="ngt2">+383 (0) 49 123 456</p>
+          <p class="ngt2">you@email.com</p>
+        </span>
+      </div>
+  </div>
+    <div class="eclipse" align="center">
+       <img src="img/femijet.svg" class="femiu">    
+  </div>
+
+</body>
+<footer align="center">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+  <script src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#login").click(function(event){
+        var login;
+  
+        var email = $('#email').val();
+        var pass = $('#pin').val();
+        var count;
+        var data = {
+                    // phone : number,
+                    email : email,
+                    password : pass
+      }
+
+          $.ajax({
+            url: globalURL+'login',
+            type: 'POST',
+            data : { email : email, 
+                    password:pass 
+                  },
+            success: function (data) {
+              // console.log(data);
+                localStorage.setItem("token", data['success']['token']);
+                var obj = [];
+
+                for (let index = 0; index < data['success']['school_ids'].length; index++) {
+                  var school_id = data['success']['school_ids'][index]['school_id'];
+                  obj.push(""+school_id);
+                }
+
+                obj.push(email);
+
+                app.tags = obj;
+
+                app.setUser();
+
+            },
+            
+            error: function (error) {
+            //   alert(JSON.stringify(error))
+              $('.alerti').append('<div style="margin-top:5%" class="alert alert-danger"><strong>Unauthorized!</strong></div>')
+              setTimeout(() => {
+                $('.alert').remove()
+              }, 3000);
+            }
+          });
+
+      });
+
+    });
+
+    $("#number").on("keyup paste", function() {
+    // Remove invalid chars from the input
+        var input = this.value.replace(/[^0-9\(\)\s\-]/g, "");
+        var inputlen = input.length;
+        // Get just the numbers in the input
+        var numbers = this.value.replace(/\D/g,'');
+        var numberslen = numbers.length;
+        // Value to store the masked input
+        var newval = "";
+
+
+        // Loop through the existing numbers and apply the mask
+        for(var i=0;i<numberslen;i++){
+            if(i==0) newval="(+"+numbers[i];
+            else if(i==3) newval+=") "+numbers[i];
+            else if(i==5) newval+="-"+numbers[i];
+            else if(i==8) newval+="-"+numbers[i];
+            else newval+=numbers[i];
+        }
+
+        // Re-add the non-digit characters to the end of the input that the user entered and that match the mask.
+        if(inputlen>=1&&numberslen==0&&input[0]=="(") newval="(";
+        else if(inputlen>=6&&numberslen==3&&input[4]==")"&&input[5]==" ") newval+=") ";
+        else if(inputlen>=5&&numberslen==3&&input[4]==")") newval+=")";
+        else if(inputlen>=6&&numberslen==3&&input[5]==" ") newval+=" ";
+        else if(inputlen>=9&&numberslen==6&&input[9]=="-") newval+="-";
+
+
+        $(this).val(newval.substring(0,17));
+    });
+
+    $("#email").click(function() {
+        $('div.errormsg1').show();
+        $('div.errormsg1').html('Email duhet të ketë \'@\' \'.com\'');
+    });
+
+    $('#email').on("keyup", function(){
+        $('div.errormsg1').hide();
+    });
+
+    $("#pin").on("keyup" ,function(){
+      
+      if(this.value.length < 4){
+        $('div.errormsg2').show();
+        $('div.errormsg2').html('PIN duhet të jetë me 4 shifra');  
+      }
+
+      if(this.value.length > 3){
+        $('div.errormsg2').hide();
+      }  
+    });
+
+    $(document).ready(function(){
+       $('#login').click(function(){
+            if ($('input').val() == ""){
+              $('div.errormsg3').show();
+              $('div.errormsg3').html('Mbushni te gjitha fushat para regjistrimit!')
+            }
+        });
+    });
+  </script>
+</footer>
+<script>
+includeHTML();
+</script>

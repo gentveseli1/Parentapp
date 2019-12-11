@@ -1,0 +1,60 @@
+
+<script src="js/base_urlJS.js"></script>
+<script src="js/includeJS.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles11.css" type="text/css">
+  <link rel="stylesheet" href="css/styles8.css" type="text/css">
+  <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+
+  <title>NJOFTIMET2.MOB</title>
+</head>
+<body>
+	<div class="container-fluid">
+	<div inculdeWithHTML="sidebar.html"></div>
+
+		<div class="col m-0 p-0">
+			<p class="orange">Njoftimet për të gjithë fëmijët tuaj</p>
+		</div>
+			<ul class="news"></ul>
+	</div>
+</body>
+
+<footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/sidebar.js"></script>
+
+<script>
+	var token = localStorage.getItem('token')
+    
+	if(token==null){
+		window.location.href='index.html';
+	}
+
+	$.ajax({
+		url: globalURL+'notification',
+		type: 'POST',
+		headers: {
+		'Authorization': 'Bearer ' + token,
+		'Accept' : 'application/json',
+		},
+		success: function (data) {
+			data.forEach(row => {
+
+				$('.news').append('<li class="blue mgb msg"><span class="calendar">'+row.date+'<br>'+row.message+'</span></li>');
+			});
+		},
+		error: function (error) {
+		}
+	});
+</script>
+</footer>
+<script>
+includeHTML();
+</script>
+</html>

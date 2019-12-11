@@ -1,0 +1,164 @@
+<script src="js/base_urlJS.js"></script>
+<script src="js/includeJS.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles7.css" type="text/css">
+  <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+  <title>HyrjaDalja.MOB</title>
+</head>
+<body>
+		<div class="modal fade" id="exampleModalShort" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					  ...
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					  <button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  
+		<div class="container">
+			<div inculdeWithHTML="sidebar.html" class="w-50"></div>
+		<div class="col-12">
+				<div class="w-100 mb-3 d-flex mt-5">
+						<input type="date" name="date" id="date" value="" class="form-control gixinput w-50 mr-2" format="yyyy-mm-dd" placeholder="Data:"/>
+						<select class="form-control2 w-50 profilet mb-3">
+							<option default>Zgjidh fëmijën</option>
+						</select>
+					</div>
+			<table id="example" class="table table-striped table-bordered" style="width:100%">
+				<thead>
+					<tr>
+						<th>Emri M.</th>
+						<th>Ora</th>
+						<th>S</th>
+						<th>Foto</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>John Doe</td>
+						<td>11:20</td>
+						<td>H</td>
+						<td><button type="button" class="" data-toggle="modal" data-target="#exampleModalShort">
+								<img class="studfoto" src="./img/femijet.svg"/>
+							  </button>
+						</td>
+					</tr>
+					<tr>
+						<td>John Doe</td>
+						<td>17:20</td>
+						<td>D</td>
+						<td><img class="studfoto" src="./img/femijet.svg"/></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="hyrja">
+		
+		
+		</div>
+		<div class="dalja">
+		
+
+		</div>
+
+		<!-- <div class="container-fluid d-flex" style="justify-content: center;">
+			<input class="checkmark" type="radio" name="dita" value="sot"><span class="day mr-3">SOT</span><br><input class="checkmark" type="radio" name="dita" value="dje"><span class="day">DJE</span>
+		</div> -->
+	</div>
+</body>
+<footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/sidebar.js"></script>
+	<script>
+		var token = localStorage.getItem('token')
+    
+		if(token==null){
+			window.location.href='index.html';
+		}
+
+		$.ajax({
+				url: globalURL+'profiles',
+				type: 'POST',
+				headers:{
+				'Authorization': 'Bearer ' + token,
+				'Accept' : 'application/json',
+				},
+				success: function (data) {
+				data.forEach(row => {
+					$('.profilet').append('<option id="'+row.id+'" value="1">'+row.name+'</option>');
+				});
+				//<button type="button" id="'+row.id+'" class="btn formkyqu mrgright">'+row.name+'</button>
+				},
+				error: function (error) {
+				}
+		});
+
+		$.ajax({
+			url: globalURL+'entry',
+			type: 'POST',
+			headers: {
+			'Authorization': 'Bearer ' + token,
+			'Accept' : 'application/json',
+			},
+			data: {
+				dita: 'sot',
+				student_id: '1'
+			},
+			success: function (data) {
+				$('.hyrja').append('<div class="col d-flex fixpos" align="center"><p class="blue">Hyrja</p><button type="button" class="btn2">'+data[0].time+'</button></div><div class="col-12" align="center"><img src="'+globalIMGURL+data[0].photo+'" style="width: 187px; height: 187px;"></div>');
+			},
+			error: function (error) {
+			}
+		});
+
+		$.ajax({
+			url: globalURL+'exit',
+			type: 'POST',
+			headers: {
+			'Authorization': 'Bearer ' + token,
+			'Accept' : 'application/json',
+			},
+			data: {
+				dita: 'sot',
+				student_id: '1'
+			},
+			success: function (data) {
+				$('.dalja').append('<div class="col d-flex fixpos2" align="center"><p class="blue">Dalja</p><button type="button" class="btn2">'+data[0].time+'</button></div><div class="col-12" align="center"><img src="'+globalIMGURL+data[0].photo+'" style="width: 187px; height: 187px;"></div>')
+				console.log(data)
+			},
+			error: function (error) {
+			}
+		});
+		
+	  </script>
+</footer>
+<script>
+includeHTML();
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+
+//reset type=date inputs to text
+$( document ).bind( "mobileinit", function(){
+	$.mobile.page.prototype.options.degradeInputs.date = true;
+});	
+
+</script>
+</html>

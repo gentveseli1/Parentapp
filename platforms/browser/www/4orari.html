@@ -1,0 +1,202 @@
+<script src="js/base_urlJS.js"></script>
+<script src="js/includeJS.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles3.css" type="text/css">
+  <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <title>ORARI.MOB</title>
+</head>
+<body>
+      <div class="container-fluid" align="center"> 
+        <div inculdeWithHTML="sidebar.html"></div>
+        <div class="container student">
+
+        </div>
+        <!-- <div class="loadersmall"></div> -->
+      </div>
+</body>
+<footer>
+  <script src="js/sidebar.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(e) {
+    $(window).on('load', function() {
+      // Animate loader off screen
+      $(".loadersmall").fadeOut("slow");;
+    });
+
+    function myFunction(x) {
+      x.classList.toggle("change");
+    }
+      $("#profileImage").click(function(e) {
+        $("#imageUpload").click();
+    });
+      $("#profileImage").click(function(e) {
+        $("#imageUpload").click();
+    });
+
+    function fasterPreview( uploader ) {
+        if ( uploader.files && uploader.files[0] ){
+              $('#profileImage').attr('src', 
+                window.URL.createObjectURL(uploader.files[0]) );
+        }
+    }
+
+    $("#imageUpload").change(function(){
+        fasterPreview( this );
+    });
+        function openCity(evt, cityName) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    var token = localStorage.getItem("token")
+
+    if(token==null){
+      window.location.href='index.html';
+    }
+    
+        $.ajaxSetup({
+        headers: {
+            'Authorization': 'Bearer ' + token,
+        },
+    });
+
+    var url = window.location.href;
+    var student_id = url.substr(url.indexOf("=") + 1)
+    var ndrrimi_1;
+    var ndrrimi_2;
+
+    $.ajax({
+      url: globalURL+'get_student/',
+      type: 'POST',
+      data: { student_id:student_id},
+      success: function (data) {
+        if(data.scheduleTime==1){
+          ndrrimi_1 = '<button class="tablinks form-control2 ndrrimiactive preventselect">Paradite</button>';
+          ndrrimi_2 = '<button class="tablinks form-control2 preventselect">Pasdite</button>';
+        }else{
+          ndrrimi_1 = '<button class="tablinks form-control2 preventselect">Paradite</button>';
+          ndrrimi_2 = '<button class="tablinks form-control2 ndrrimiactive preventselect">Pasdite</button>';
+        }
+
+        var str = data.scheduleHours;
+        var orari = str.split(",");
+        var orari_p;
+        if(orari[0]!=undefined)
+        {
+          orari_p = '<p class="orangish">H: '+orari[0]+'</p>';
+        }
+        if(orari[1]!=undefined)
+        {
+          orari_p += '<p class="orangish">M: '+orari[1]+'</p>';
+        }
+        if(orari[2]!=undefined)
+        {
+          orari_p += '<p class="orangish">M: '+orari[2]+'</p>';
+        }
+        if(orari[3]!=undefined)
+        {
+          orari_p += '<p class="orangish">E: '+orari[3]+'</p>';
+        }
+        if(orari[4]!=undefined)
+        {
+          orari_p += '<p class="orangish">P: '+orari[4]+'</p>';
+        }
+
+        if(data.profile_image == null){
+          $('.student').append('<div id="image_preview"><img id="previewing" src="noimage.png" /></div><div id="profile-container"><input id="photo" type="file" name="profile_photo" placeholder="Photo" required="" capture><input type="button" value="upload" id ="uploadPhotoButton"/></div><input readonly type="text" value="'+data.name+'" class="form-control margtop2" placeholder="Emri dhe Mbiemri"><input readonly type="text" value="'+data.birthdate+'" class="form-control margtop" placeholder="Ditëlindja e nxënësit"><input readonly type="text" value="'+data.school+'" class="form-control margtop" placeholder="Shkolla"><input readonly type="text" value="'+data.class+'" class="form-control margtop" placeholder="Klasa"><div class="orari d-flex" align="center"><p class="textchange">Ndrrimi</p>'+ndrrimi_1+ndrrimi_2+'</div><p class="bluish">Orari i mesimit</p>'+orari_p)
+        }
+
+        $('.student').append('<div id="profile-container"><image id="profileImage" src="'+globalIMGURL+data.profile_image+'"/><input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture></div><input readonly type="text" value="'+data.name+'" class="form-control margtop2" placeholder="Emri dhe Mbiemri"><input readonly type="text" value="'+data.birthdate+'" class="form-control margtop" placeholder="Ditëlindja e nxënësit"><input readonly type="text" value="'+data.school+'" class="form-control margtop" placeholder="Shkolla"><input readonly type="text" value="'+data.class+'" class="form-control margtop" placeholder="Klasa"><div class="orari d-flex" align="center"><p class="textchange">Ndrrimi</p>'+ndrrimi_1+ndrrimi_2+'</div><p class="bluish">Orari i mesimit</p>'+orari_p)
+
+      },
+      error: function (error) {
+        // window.location.href = '3profilet.html'
+
+      }
+    });
+
+    $("body").on('click', '#uploadPhotoButton' , function(e){
+            //$("#uploadPhotoButton").on('click', (function(e) {
+              //$("#uploadPhotoButton").click(function(){
+              
+                e.preventDefault();
+                var profile_image = document.querySelector('#photo');
+                profile_image = profile_image.files[0];
+
+                var formData = new FormData();
+                formData.append('profile_image',profile_image , $.now()+'.jpg');
+                formData.append('student_id',student_id);
+                $.ajax({
+                    url: "globalURL+'change_picture/", // Url to which the request is send
+                    type: "POST", // Type of request to be send, called as method
+                    data: formData, // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                    contentType: false, // The content type used when sending data to the server.
+                    cache: false, // To unable request pages to be cached
+                    processData: false, // To send DOMDocument or non processed data file it is set to false
+                    complete: function(data) // A function to be called if request succeeds
+                    {
+                        location.reload();
+                        
+                    }
+                });
+            });
+
+            // Function to preview image after validation
+            $(function() {
+                $("#photo").change(function() {
+                    
+                    var file = this.files[0];
+                    var imagefile = file.type;
+                    var match = ["image/jpeg", "image/png", "image/jpg"];
+                    if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
+                        $('#previewing').attr('src', 'noimage.png');
+                        $("#message").html("<p id='error'>Please Select A valid Image File</p>" + "<h4>Note</h4>" + "<span id='error_message'>Only jpeg, jpg and png Images type allowed</span>");
+                        return false;
+                    } else {
+                        var reader = new FileReader();
+                        reader.onload = imageIsLoaded;
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+            });
+
+            function imageIsLoaded(e) {
+                $('#image_preview').css("display", "block");
+                $('#previewing').attr('src', e.target.result);
+            };
+        });
+   
+  </script>
+</footer>
+<script>
+includeHTML();
+</script>
+</html>

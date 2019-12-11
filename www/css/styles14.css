@@ -1,0 +1,102 @@
+* {box-sizing: border-box;}
+.html{height: 100vh;}
+body {
+  margin: 0;
+  font-family: Heebo!important;
+  height: 100vh;
+ /* background: -webkit-linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9)!important;  /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*background: #2980B9;*/
+}
+.container-fluid{
+  height: 100vh;
+}
+.orange{   
+  font-family: Heebo;
+  font-size: 22px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.67;
+  letter-spacing: 0.18px;
+  text-align: left;
+  color: #e46e38;margin-top: 74px; text-align: center; margin-bottom: 0;}
+.orange2{
+  font-family: Heebo;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.5;
+  letter-spacing: 0.12px;
+  text-align: left;
+  color: #e46e38;
+  text-align: center;
+  margin-bottom: 10px!important;
+}
+.scancode{  font-family: Heebo;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  text-align: center;
+  color: #e46e38;}
+.scan-padding{
+  padding-top: 20%;
+}
+.btn{
+	width: 32%;
+  height: 37.6px;
+  border-radius: 8px;
+  border-color: #e46e38;
+  background-color: #e46e38;
+  color: white;
+  font-family: Heebo;
+}
+.jcc{justify-content: center;}
+.btn2{
+  background-color: #5cc3d6;
+  color: white!important;
+  width: 46%;
+  border-radius: 5px;
+  margin-top: 34px;
+}
+button.btn:hover{
+  background-color: #e46e38;
+  color: white!important;
+}
+.margtop{margin-top: 48px}
+.margtop2{margin-top: 77px;}
+.margtop3{margin-top: 80px;}
+.margtop4{margin-top: 47px;}
+.form-control{  display: block;
+    width: 70%;
+    height: 36px;
+    margin-top: 18px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+  	border-radius: 8px;
+    background-color: #eaeaea;
+    text-align: center;
+    font-family: Heebo!important;}
+.margright{margin-right: 38px;}
+.form-control2{  display: block;
+    width: 32%;
+    height: 36px;
+    margin-top: 18px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+  	border-radius: 8px;
+    background-color: #eaeaea;
+    text-align: center;
+    font-family: Heebo!important;}
+.margtop5{margin-top: 10px;}
+.footeri{  bottom: 0;
+  position: absolute;
+  height: 59px;
+  width: 100%;
+  background-color: #5cc3d6;}

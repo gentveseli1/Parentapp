@@ -1,0 +1,74 @@
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Heebo!important;
+ /* background: -webkit-linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9)!important;  /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*background: #2980B9;*/
+  height: 100%;
+}
+
+.orange{
+  font-size:14px;
+  line-height: 1.20;
+  letter-spacing: 0.14px;
+  text-align: left;
+  color:#e46e38;
+  margin-top: 78px; 
+  text-align: center;
+  font-family:Heebo;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+.footeri{
+	bottom: 0;
+  width: 100%;
+  position: absolute;
+  height: 56px;
+  background-color: #5cc3d6;
+}
+
+.boxes{
+	width: 100%;
+  min-height: 150px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 10px 1px 10px 1px;
+}
+
+.profilb{
+  width: 40%;
+  height: 40px;
+  border-radius: 8px;
+  border: solid 1px #e46e38;
+  background-color: white;
+  margin-left: 6%;
+  margin-top: 5px;
+}
+
+.calendar{
+  color: #5cc3d6;
+  margin-right: 8%;
+  padding-top: 2%;
+}
+
+.jc{
+  justify-content: space-between;
+}
+
+.radius1{
+  width: 30px; 
+  border-radius: 50%;
+  margin-right: 5px;
+  height: 30px;
+}
+
+.txtnews{
+  margin-top:5px;
+  margin-left: 6%;
+  margin-right: 8%;
+}

@@ -1,0 +1,166 @@
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Heebo!important;
+  /*background: -webkit-linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9)!important;  /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*background: #2980B9;*/
+  height: 100%;
+}
+
+.container{
+  height: 100%;
+}
+
+.heightx{
+	height: 90px;
+}
+
+.btn{
+  width: 88px;
+  height: 32.3px;
+  border-radius: 8px;
+  border: solid 1px #e46e38;
+  background-color: #ffffff;
+  font-size: small;
+}
+
+.formkyqu{
+  margin-top: 35px;width: 33.33%; height: 50px;
+}
+
+.formkyqu2{
+  width: 16.7%; 
+  height: 30px;
+
+  
+}
+
+.statistic{
+  height: 250px;
+  background-color: #A9A9A9;
+}
+
+.mrgright{
+  margin-right: 10px;
+}
+
+.nav{
+  height: 54.5px
+}
+
+div.col-12.heightx.d-flex{
+  width: 100%;
+}
+
+div.container{
+  padding: 0;
+}
+
+.weeklyraport{  
+  font-family: Heebo;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.14;
+  letter-spacing: 0.14px;
+  color: #2c2e38;margin-top: 10px;
+}
+
+.ff{
+  font-family: Heebo!important;
+}
+
+.raport{
+  background-color: #ffff;
+}
+
+/*#body {
+  height: 100%;
+  width: 100%;
+}*/
+a{
+	color: white;
+}
+
+.btn1{  
+  width: 55px;
+  height: 28px;
+  border-radius: 8px;
+  border: solid 1px #e46e38;
+  background-color: #ffffff;
+}
+
+button:hover{
+  background-color: #e46e38!important;
+  color: white!important;
+}
+
+.footeri{
+  height: 59px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #5cc3d6;
+  text-align: right;
+}
+
+#chartdiv {
+  width: 320px;
+  height: 250px;
+}
+
+#chartdiv1 {
+  width: 320px;
+  height: 250px;
+}
+
+@media only screen and (max-height: 736px){
+  .formkyqu{
+    margin-top: 20px;
+  }
+
+  .heightx{
+    height: 70px!important;
+  }
+
+  .nav{
+    height: 38px;
+  }
+}
+
+.logout{
+  background-color: #DCDCDC!important;
+  color: #5cc3d6!important;
+  border-radius: 15%;
+  width: 100px;
+  margin: 15px 10px 2px 10px;
+  border-radius: 1px;
+}
+
+.logout{
+  background-color: #DCDCDC!important;
+  color: #5cc3d6!important;
+  border-radius: 15%;
+  width: 100px;
+  margin: 15px 10px 2px 10px;
+  border-radius: 1px;
+}
+
+.colored {
+  background: #e46e38;
+  color: white;
+}
+
+.btn-raporti{
+     width: 44%;
+    background:#e46e38;
+    color:white;
+    cursor: pointer;
+}
+
+.inOut{
+  font-family: Heebo!important;
+}
