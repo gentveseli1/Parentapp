@@ -1,5 +1,6 @@
 <script src="js/base_urlJS.js"></script>
 <script src="js/includeJS.js"></script>
+<script src="js/pulltorefresh.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
   <title>QRcode.MOB</title>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid" id="container-fluid">
 	<div inculdeWithHTML="sidebar.html"></div>
 		<div class="scan-padding">
 			<p class="scancode">Skano QR Code</p>
@@ -34,6 +35,19 @@
 		if(token==null){
 			window.location.href='index.html';
 		}
+		PullToRefresh.init({
+		mainElement: '#container-fluid', // above which element?
+		onRefresh: function(){
+		var promise = new Promise(
+			function(resolve, reject){
+			setTimeout(()=>{
+				resolve();
+			}, 1500);
+			}
+		);
+		return promise;
+		}
+	});
 	</script>
 </footer>
 <script>

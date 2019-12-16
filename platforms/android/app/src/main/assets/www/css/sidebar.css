@@ -9,17 +9,6 @@ a{
   text-align: left;
   color: #2a2b2f;
 }
-/* .formkyqu{
-	width: 50%;
-	font-family: Heebo!important;
-  	border-radius: 3px;
-  	border: solid 1px #e46e38;
-} */
-
-/* .btn{
-	color: #e46e38!important;
-  width: 75%;
-} */
 
 a:hover{
   color: #e46e38;
@@ -43,18 +32,18 @@ a:hover{
   border-radius: 1px;
 }
 .bbros-side-bar{
-  padding: 50px 20px 50px 50px;
+  padding: 35px 20px 50px 50px;
   width: 75%;
-  height: calc(100vh - 59px);
   box-shadow: 0px 0px 5px #cecece;
   position: fixed;
   top:0px;
   bottom: 0;
   left: -75%;
-  transition: all 0.3s;
+  transition: all 0.65s;
   z-index: 9999;
   background-color: #fff;
   height: 100%;
+  /* overflow-y: scroll; */
 }
 .bbros-side-bar ul{
   padding-left:0px;
@@ -62,7 +51,8 @@ a:hover{
 }
 
 .main-sidebar{
-  margin-bottom: 20px;
+  margin-bottom: 35px;
+  height: 25px!important;
 }
 
 .hamburger{
@@ -85,23 +75,20 @@ a:hover{
   position: absolute;
   right: 37px;
   top: 20px;
-  transition: all 0.9s;
+  transition: all 1.3s;
   opacity: 0;
   visibility: hidden;
   line-height: 1;
 }
 
-.last-li:last-child { position: absolute; bottom: 0; margin-bottom: 30px;}
-
 .settings{
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  height: 35px;
 }
 
 img{
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 
 }
 
@@ -115,7 +102,7 @@ li{
 
 .dashboard-button{
   color: #e46e38!important;
-  width: 80%;
+  width: 180px;
   font-family: Heebo!important;
   font-size: 18px;
   border-radius: 3px;
@@ -249,36 +236,291 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
   }
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (max-width: 360px)
+{   
+  .settings{
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .dashboard-button{
+    height: 35px!important;
+    width: 100%;
+    font-size: 14px!important;
+  }
+  
+  div.mt-5{
+    margin-top: 3.5rem!important;
+  }
+
+  .bbros-side-bar{
+    padding: 20px 20px 50px 30px;
+  }
+
+  .mb-3{
+    margin-bottom: 1.4rem!important;
+  }
+
+  .profilfont{
+    font-size: 18px;
+  }
+
+  .imgradius{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+  .hamburger div {
+    width: 25px;
+    height: 4px;
+    background-color: #5cc3d6;
+    margin: 4px 0;
+  } 
+  .bbros-close {
+    color: #5cc3d6;
+    font-size: 26px !important;
+    position: absolute;
+    right: 37px;
+    top: 20px;
+    transition: all 0.9s;
+    opacity: 0;
+    visibility: hidden;
+    line-height: 1;
+}
+
+.txttype{
+  font-size: 26px;
+}
+}
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3){
+  .settings{
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .dashboard-button{
+    height: 55px!important;
+    width: 100%;
+    font-size: 20px!important;
+  }
+
+  .mb-3{
+    margin-bottom: 2.7rem!important;
+  }
+  
+  div.mt-5{
+    margin-top: 5rem!important;
+  }
+
+  .bbros-side-bar{
+    padding: 20px 20px 50px 30px;
+  }
+
+  .profilfont{
+    font-size: 22px;
+  }
+
+  .txttype{
+    font-size: 36px;
+    width: 100%;
+  }
+
+  .imgradius{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+
+}
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2) {
+      .hamburger div {
+        width: 25px;
+        height: 4px;
+        background-color: #5cc3d6;
+        margin: 5px 0;
+      }
+
+      .mb-3, .my-3 {
+        margin-bottom: 1.8rem!important;
+      }
+
+      div.mt-5{
+        margin-top: 3.0rem!important;
+      }
+      .txttype{
+        font-size: 32px;
+        width: 100%;
+      }
+      .bbros-side-bar {
+        padding: 20px 20px 50px 50px;}
+}
+
+@media only screen 
+    and (device-width : 414px) 
+    and (device-height : 736px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+      .mb-3, .my-3 {
+        margin-bottom: 2.4rem!important;
+      }
+
+      .dashboard-button{
+        font-size: 20px;
+        height: 45px;
+      }
+
+      div.mt-5{
+        margin-top: 4.5rem!important;
+      }
+      .bbros-side-bar{
+        padding: 20px 20px 50px 40px;
+      }
+
+      .settings{
+        font-size: 18px;
+      }
+
+      .txttype{
+        font-size: 34px;
+        width: 100%;
+      }
+     }
+
+@media only screen and (device-width: 768px) {
+      .dashboard-button {
+        color: #e46e38!important;
+        width: 360px;
+        font-family: Heebo!important;
+        font-size: 24px;
+        border-radius: 3px;
+        border: solid 1px #e46e38;
+        height: 65px;
+        background: white;
+     }
+     .settings{
+       font-size: 25px;
+     }
+
+     button.btn{
+      height: 70px;
+      width: 65%;
+      font-size: 28px;
+    }
+
+     .mb-3{
+       margin-bottom: 3.4rem!important;
+     }
+
+     div.mt-5{
+       margin-top: 5.5rem!important;
+     }
+
+     img.favicon{
+       width: 28px;
+       height: 28px;
+     }
+
+     .txttype{
+       font-size: 45px;
+       width: 100%;
+     } 
+
+     .profilfont{
+       font-size: 36px;
+       width: 85%;
+     }
+
+     .imgradius{
+       width: 70px;
+       height: 70px;
+     }
+      .divstudentat {
+        justify-content: center!important;
+        height: 120px;
+    }
+
+    .hamburger div {
+      width: 50px;
+      height: 8px;
+      background-color: #5cc3d6;
+      margin: 10px 0;
+    }
+
+    .bbros-close{
+      font-size: 60px !important;
+    }
+}
+
+@media only screen and (device-width: 1024px) {
+  .dashboard-button {
+    color: #e46e38!important;
+    width: 420px;
+    font-family: Heebo!important;
+    font-size: 32px;
+    border-radius: 3px;
+    border: solid 1px #e46e38;
+    height: 80px;
+    background: #ffffff;
+  }
 
   .settings{
-    font-size: 25px;
-    font-weight: 300;
+    font-size: 32px;
+  }
+
+  .mb-3{
+    margin-bottom: 4.5rem!important;
+  }
+
+  div.mt-5{
+    margin-top: 12rem!important;
   }
 
   img.favicon{
-    width: 35px;
-    height: 35px;
+    width: 28px;
+    height: 28px;
   }
 
-  .last-li:last-child{
-    margin: 1px 1px 80px 1px;
-  }
-  .main-sidebar{
-    margin-bottom: 40px;
+  .imgradius{
+    width: 80px;
+    height: 80px;
   }
 
-  .dashboard-button{
-    height: 60px;
-    font-size: 20px;
+  .txttype{
+    font-size: 45px;
+    width: 100%;
+  } 
+
+  button.btn{
+    height: 80px;
+    width: 65%;
+    font-size: 28px;
   }
-}
 
-@media only screen and (max-height: 568px){
+  .profilfont{
+    font-size: 50px;
+    width: 85%;
+  }
 
-  .dashboard-button{
-    height: 40px!important;
-    width: 80%;
-    font-size: 14px!important;
+    .divstudentat {
+      justify-content: center!important;
+      height: 120px;
+  }
+
+  .hamburger div {
+    width: 50px;
+    height: 8px;
+    background-color: #5cc3d6;
+    margin: 10px 0;
+  }
+
+  .bbros-close{
+    font-size: 60px !important;
   }
 }

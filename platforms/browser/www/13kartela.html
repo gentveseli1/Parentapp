@@ -1,5 +1,6 @@
 <script src="js/base_urlJS.js"></script>
 <script src="js/includeJS.js"></script>
+<script src="js/pulltorefresh.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
   <title>KARTELA.MOB</title>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid" id="container-fluid">
 	<div inculdeWithHTML="sidebar.html"></div>
 		<div class="new-card">
 			<p class="orange">Kerkesa per kartele e re</p>
@@ -24,7 +25,7 @@
 			
 		</div>
 
-		<div class="col margtop3" align="center">
+		<div class="col mt-3" align="center">
 			<p class="orange2">Te dhenat mbushen ne baze te informatave te femijes</p>
 			<div class="inputes">
 				<button type="button" class="btn2 formkyqu porosit_btn mt-3">Porosit kartelen</button>
@@ -134,6 +135,19 @@
 				}, 3000);
 			}
       	});
+		});
+		PullToRefresh.init({
+			mainElement: '#container-fluid', // above which element?
+			onRefresh: function(){
+			var promise = new Promise(
+				function(resolve, reject){
+				setTimeout(()=>{
+					resolve();
+				}, 1500);
+				}
+			);
+			return promise;
+			}
 		});
 </script>
 </footer>

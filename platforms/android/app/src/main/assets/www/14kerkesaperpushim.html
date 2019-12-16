@@ -1,5 +1,6 @@
 <script src="js/base_urlJS.js"></script>
 <script src="js/includeJS.js"></script>
+<script src="js/pulltorefresh.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,17 +11,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="css/styles13.css" type="text/css">
   <link rel="stylesheet" href="css/sidebar.css" type="text/css">
-  <link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" />
+  <link rel="stylesheet" href="css/jquery.ui.datepicker.mobile.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
-  <script src="jQuery.ui.datepicker.js"></script>
-  <script src="jquery.ui.datepicker.mobile.js"></script>
+  <script src="js/jQuery.ui.datepicker.js"></script>
+  <script src="js/jquery.ui.datepicker.mobile.js"></script>
   <title>PUSHIMKERKESA.MOB</title>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid" id="container-fluid">
 	<div inculdeWithHTML="sidebar.html"></div>
 		<div class="scan-padding">
 			<p class="orange">Kerkesa per pushim</p>
@@ -132,6 +133,19 @@
 	$( document ).bind( "mobileinit", function(){
 		$.mobile.page.prototype.options.degradeInputs.date = true;
 	});	
+	PullToRefresh.init({
+		mainElement: '#container-fluid', // above which element?
+		onRefresh: function(){
+		var promise = new Promise(
+			function(resolve, reject){
+			setTimeout(()=>{
+				resolve();
+			}, 1500);
+			}
+		);
+		return promise;
+		}
+	});
 
 </script>
 </footer>

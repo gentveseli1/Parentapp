@@ -38,7 +38,7 @@ var app = {
             // window.plugins.PushbotsPlugin.updateTags(email);
             window.plugins.PushbotsPlugin.setTags(app.tags);
             window.location.href = "3profilet.html";         
-        }, 2000);
+        }, 5000);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

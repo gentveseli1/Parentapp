@@ -1,5 +1,6 @@
 <script src="js/base_urlJS.js"></script>
 <script src="js/includeJS.js"></script>
+<script src="js/pulltorefresh.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <script>
-        $('#ckycu').click(function(){
-            window.localStorage.clear();
-            window.location.href = "index.html";
-        });
-    </script>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -31,10 +26,10 @@
 <body>
     <div class="loading" style="display:none">Loading&#8230;</div>
 
-    <div class="container">
+    <div class="container" id="container-fluid">
         <div inculdeWithHTML="sidebar.html"></div>
-        <div style="margin-bottom:80px"></div>
-            <div class="nav d-flex" style="justify-content: center;margin-bottom:5px">
+        
+            <div class="nav d-flex mt-5" style="justify-content: center;margin-bottom:5px">
                 <a href="7statistikatKomunal.html" class="btn btn-raporti">Raporti Komunal</a>
             </div>
 
@@ -419,8 +414,21 @@
             error: function (error) {
             }
         });
-    
-        </script>
+        
+        PullToRefresh.init({
+          mainElement: '#container-fluid', // above which element?
+          onRefresh: function(){
+            var promise = new Promise(
+              function(resolve, reject){
+                setTimeout(()=>{
+                  resolve();
+                }, 1500);
+              }
+            );
+            return promise;
+          }
+        });
+</script>
 </footer>
 <script>
 includeHTML();

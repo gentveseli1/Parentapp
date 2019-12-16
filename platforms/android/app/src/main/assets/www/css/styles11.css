@@ -72,3 +72,8 @@ body {
   margin-left: 6%;
   margin-right: 8%;
 }
+
+.spinnericon{
+  width: 40px!important;
+  height: 40px!important;
+}

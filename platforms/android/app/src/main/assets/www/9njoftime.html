@@ -1,5 +1,6 @@
 <script src="js/base_urlJS.js"></script>
 <script src="js/includeJS.js"></script>
+<script src="js/pulltorefresh.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +14,11 @@
 </head>
 <body>
 
-	<div class="container">
+	<div class="container" id="container-fluid">
 <div inculdeWithHTML="sidebar.html"></div>
 		<div class="col-12">
 
-			<p class="orange">Njoftime nga Drejtoria e Shkolles</p>
+			<p class="orange">Njoftime nga Drejtoria e Shkollës</p>
 
 		</div>
 
@@ -56,19 +57,19 @@
 		}
 	});
 
-	// $.ajax({
-	// 	url: globalURL+'seenSchoolNotifications',
-	// 	type: 'POST',
-	// 	headers: {
-	// 		'Authorization': 'Bearer ' + token,
-	// 		'Accept' : 'application/json',
-	// 	},
-	// 	success: function (data) {
-	// 	},
-	// 	error: function (error) {
-	// 	}
-	// });
-
+	PullToRefresh.init({
+		mainElement: '#container-fluid', // above which element?
+		onRefresh: function(){
+		var promise = new Promise(
+			function(resolve, reject){
+			setTimeout(()=>{
+				resolve();
+			}, 1500);
+			}
+		);
+		return promise;
+		}
+	});
 </script>
 <script>
 includeHTML();
