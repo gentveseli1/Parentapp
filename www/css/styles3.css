@@ -26,7 +26,7 @@ body {
   margin: 6px 0;
   transition: 0.4s;
 }
-.textchange{font-family: Heebo!important; font-weight: bold; border: 1px solid #e46e38; background-color: bisque; border-radius: 2%;}
+.textchange{font-family: Heebo!important; font-weight: bold; border: 1px solid #e46e38; background-color: bisque; border-radius: 2%; padding: 5px; width: 80%;}
 .change .bar1 {
   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
   transform: rotate(-45deg) translate(-9px, 6px);
