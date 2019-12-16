@@ -7,56 +7,57 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
-<script>
-    $('#ckycu').click(function(){
-        window.localStorage.clear();
-        window.location.href = "index.html";
-    });
-</script>
+
 
 <!--End Of Code From Footer.PHP-->
 
 
-
+<div class="forover">
 <div class='hamburger' onclick="hamburgerClick()">
     <div></div>
     <div></div>
     <div></div>
 </div>
 
+
 <span class='bbros-close' onclick="hamburgerClose()"><i class="fa fa-times" aria-hidden="true"></i></span>
 
-<div class="bbros-side-bar">
-    <ul>
-        
-        <li class="main-sidebar">
-        <a href="3profilet.html"><button type="button" class="dashboard-button"><img src="https://img.icons8.com/wired/64/000000/dashboard.png" class="favicon">Dashboard</button></a>
-        </li>
-        <li class="main-sidebar">
-        <a href="#" class="settings"><img src="https://img.icons8.com/small/16/000000/conference-call.png" class="favicon">Hyrja me foto</a>
-        </li>
-        <li class="main-sidebar">
-        <a href="9njoftime.html" class="settings"><img src="https://img.icons8.com/dotty/80/000000/assignment-late.png" class="favicon">Njoftim nga Drejt. e Shkollës</a>
-        </li>
-        <li class="main-sidebar">
-            <a href="12njoftimePerFemijet.html" class="settings"><img src="https://img.icons8.com/dotty/80/000000/assignment-late.png" class="favicon">Njoftim Per Femijet Tuaj</a>
-        </li>
-        <li class="main-sidebar">
-        <a href="10sygjerime.html" class="settings"><img src="https://img.icons8.com/small/16/000000/hint.png" class="favicon">Sygjerimet nga prindi</a>
-        </li>
-        <li class="main-sidebar">
-        <a href="13kartela.html" class="settings"><img src="https://img.icons8.com/ios/50/000000/request-money.png" class="favicon">Kërkesa për kartelë</a>
-        </li>
-        <li class="main-sidebar">
-        <a href="14kerkesaperpushim.html" class="settings"><img src="https://img.icons8.com/cotton/64/000000/tent-in-the-forest.png" class="favicon">Kërkesat për pushim</a>
-        </li>
-        <li class="main-sidebar">
-        <a href="6statistikat.html" class="settings d-flex"><img src="https://img.icons8.com/cotton/64/000000/graph.png" class="favicon">Statistikat në nivel shkollor/komunal</a>
-        </li>
-        <li class="last-li">
-            <a href="11settings.html" class="settings d-flex" style="margin-bottom: 6%;"><img src="https://img.icons8.com/cotton/64/000000/settings--v1.png" class="favicon">Cilësimet</a>
-            <a href="index.html" class="settings" id="ckycu"><img src="https://img.icons8.com/cotton/64/000000/shutdown--v3.png" class="favicon">Çkyçu</a>
-        </li>
- 
-    </ul>
+    <div class="bbros-side-bar">
+        <ul>
+            
+            <li class="sidebar-item mb-3 mt-3">
+            <a href="index.html"><button type="button" class="dashboard-button"><img src="https://img.icons8.com/wired/64/000000/dashboard.png" class="favicon">Dashboard</button></a>
+            </li>
+            <li class="sidebar-item mb-3 mt-4">
+            <a href="#" class="settings"><img src="https://img.icons8.com/small/16/000000/conference-call.png" class="favicon">Hyrja me foto</a>
+            </li>
+            <li class="sidebar-item mb-3 mt-3">
+            <a href="9njoftime.html" class="settings"><img src="https://img.icons8.com/dotty/80/000000/assignment-late.png" class="favicon">Njoftim nga Shkolla</a>
+            </li>
+            <li class="sidebar-item mb-3 mt-3">
+                <a href="12njoftimePerFemijet.html" class="settings"><img src="https://img.icons8.com/dotty/80/000000/assignment-late.png" class="favicon">Njoftim Për Ty</a>
+            </li>
+            <li class="sidebar-item mb-3 mt-3">
+            <a href="10sygjerime.html" class="settings"><img src="https://img.icons8.com/small/16/000000/hint.png" class="favicon">Sygjerimet nga prindi</a>
+            </li>
+            <li class="sidebar-item mb-3 mt-3">
+            <a href="13kartela.html" class="settings"><img src="https://img.icons8.com/ios/50/000000/request-money.png" class="favicon">Kërkesa për kartelë</a>
+            </li>
+            <li class="sidebar-item mb-3 mt-3">
+            <a href="14kerkesaperpushim.html" class="settings"><img src="https://img.icons8.com/cotton/64/000000/tent-in-the-forest.png" class="favicon">Kërkesat për pushim</a>
+            </li>
+            <li class="sidebar-item mb-3 mt-3">
+            <a href="6statistikat.html" class="settings d-flex"><img src="https://img.icons8.com/cotton/64/000000/graph.png" class="favicon">Statistikat</a>
+            </li>
+            <div class="mt-5">
+                <li class="sidebar-item mb-3 mt-3">
+                    <a href="11settings.html" class="settings"><img src="https://img.icons8.com/cotton/64/000000/settings--v1.png" class="favicon"><span class="mt-1">Cilësimet</span></a>
+                </li>
+                <li class="sidebar-item mb-3 mt-3">
+                    <a onclick="window.localStorage.clear();window.location.href = 'index.html';" class="settings" id="ckycu"><img src="https://img.icons8.com/cotton/64/000000/shutdown--v3.png" class="favicon"><span class="mt-1">Çkyçu</span></a>
+                </li>
+            </div>
+        </ul>
+    </div>
 </div>
+    

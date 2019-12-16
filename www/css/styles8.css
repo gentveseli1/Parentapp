@@ -54,7 +54,7 @@ ul .red::before {
 
 ul .blue::before {
   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color:  #338ae0;
+  color:  #5cc3d6;
   font-weight: bold; /* If you want it to be bold */
   display: inline-block; /* Needed to add space between the bullet and the text */
   width: 1em; /* Also needed for space (tweak if needed) */
@@ -76,7 +76,6 @@ ul .blue::before {
 }
 
 .calendar{
-  opacity: 0.7;
   font-size: 12px;
 }
 
@@ -84,4 +83,66 @@ ul .blue::before {
  height: 40px;
  width: 40px; 
  margin-top: 20px;
+}
+
+@media only screen and (max-width: 360px)
+{   
+  p.orange{
+    font-size: 16px;
+  }
+}
+
+@media only screen 
+    and (device-width : 320px) 
+    and (device-height : 568px){
+      p.orange{
+        font-size: 14px;
+      }
+}   
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3){
+      p.orange{
+        font-size: 18px;
+      }
+}
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2) {
+      p.orange{
+        font-size: 18px;
+      }
+}
+@media only screen 
+    and (device-width : 414px) 
+    and (device-height : 736px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+      p.orange{
+        font-size: 20px;
+      }
+}
+@media only screen and (device-width: 768px) {
+  p.orange{
+    font-size: 28px;
+  }
+  span.calendar{
+    font-size: 18px!important;
+  }
+}
+
+@media only screen and (device-width: 1024px) {
+  p.orange{
+    font-size: 28px;
+  }
+  span.calendar{
+    font-size: 22px!important;
+  }
+}
+
+.spinnericon{
+  width: 40px!important;
+  height: 40px!important;
 }

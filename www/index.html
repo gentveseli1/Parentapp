@@ -64,6 +64,13 @@
 
   <script type="text/javascript">
     $(document).ready(function(){
+
+      var token = localStorage.getItem("token")
+
+      if(token!=null){
+        window.location.href='3profilet.html';
+      }
+
       $("#login").click(function(event){
         var login;
   
@@ -105,7 +112,7 @@
               $('.alerti').append('<div style="margin-top:5%" class="alert alert-danger"><strong>Unauthorized!</strong></div>')
               setTimeout(() => {
                 $('.alert').remove()
-              }, 3000);
+              }, 5000);
             }
           });
 

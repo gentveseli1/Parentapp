@@ -101,13 +101,14 @@ body {
 /*	width: 100%;
   border-radius: 200px 200px 0 0;
   box-shadow: 10px 10px 40px 0 rgba(0, 0, 0, 0.35);*/
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   background-image: linear-gradient(166deg, #e46e38, #72371c);
   height: 25%;
   box-shadow: 10px 10px 40px 0 rgba(0, 0, 0, 0.35);
   border-radius: 200px 200px 0 0;
+  right: 0%;
 }
 
 .mtop{margin-top: 8%;}
@@ -137,122 +138,6 @@ div.buttonat.d-flex{
 
 .buttonat{
   width: 70%;
-}
-
-@media screen and (min-device-height: 568px) and (max-device-height: 650px) {
-  .form-control{
-    height: 28px;
-  }
-
-  img.mainlogo{
-    width: 17%;
-  }
-
-  .mtop{
-    margin-top: 5%;
-  }
-
-  img.femiu{
-    width: 200px;
-    margin-top: 4%;
-  }
-
-  img.mtop{
-    width: 205px;
-  }
-
-  div.buttonat.d-flex{
-    margin-top: 0;
-  }
-
-  div.buttonat{
-    width: 70%;
-    justify-content: space-between;
-  }
-
-  button.btn.formkyqu.margtop2{
-    height: 34px!important;
-  }
-
-  button.btn.formkyqu2.margtop2{
-    height: 34px!important;
-  }
-
-  .infos{
-    margin-top: 8%;
-  }
-}
-
-@media screen and (max-device-height: 667px){
-  .form-control{
-    height: 25px;
-    font-size: 12px;
-  }
-  button#register{
-    height: 28px;
-    width: 50%;
-    font-size: 12px;
-  }
-}
-
-@media screen and (min-device-height: 667px) and (max-device-height: 736px){
-  .margtop{
-    margin-top: 25px;
-  }
-
-  .form-control{
-    height: 28px;
-    font-size: 14px;
-  }
-
-  button#register{
-    height: 32px;
-    font-size: 13px;
-  }
-
-  .mtop{
-    margin-top: 5%;
-  }
-
-  img.femiu{
-    width: 220px;
-    margin-top: 4%;
-  }
-
-  .margtop2{
-    margin-top: 10%;
-  }
-}
-
-@media screen and (min-device-height: 812px) and (max-device-height: 850px){
-  div.infos{
-    margin-top: 15%;
-  }
-
-  p.ngt{
-    font-size: 11px;
-  }
-
-  img.femiu{
-    width: 240px;
-    margin-top: 6%;
-  }
-
-  span.ngt2{
-    font-size: 11px;
-  }
-
-}
-
-@media screen and (min-width: 768px){
-  img.femiu{
-    width: 240px;
-    margin-top: 10%!important;
-  }
-
-  .dfc{
-    margin-top: 3%;
-  }
 }
 
 .error{
@@ -286,4 +171,136 @@ span.error_form{
 .errormsg4{
   color: red;
   font-size: 12px;
+}
+
+@media only screen and (max-width: 360px)
+{   
+  .form-control{
+    height: 34px;
+    font-size: 14px;
+  }
+
+  img.mainlogo{
+    width: 17%;
+  }
+
+  .mtop{
+    margin-top: 5%;
+  }
+
+  img.femiu{
+    width: 200px;
+    margin-top: 4%;
+  }
+
+  img.mtop{
+    width: 205px;
+  }
+
+  div.buttonat.d-flex{
+    margin-top: 0;
+  }
+
+  div.buttonat{
+    width: 70%;
+    justify-content: space-between;
+  }
+
+  button.btn.formkyqu.margtop2{
+    height: 40px;
+  }
+
+  .infos{
+    margin-top: 8%;
+  }
+}
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3){
+      div.infos{
+        margin-top: 15%;
+      }
+
+      .form-control{
+        height: 38px;
+        font-size: 16px;
+      }
+    
+      p.ngt{
+        font-size: 11px;
+      }
+      
+      button.login{
+        height: 42px;
+      }
+
+      img.femiu{
+        width: 240px;
+        margin-top: 6%;
+      }
+    
+      span.ngt2{
+        font-size: 11px;
+      }
+
+}
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2) {
+      .form-control{
+        height: 34px;
+        font-size: 14px;
+      }
+      button#register{
+        height: 28px;
+        width: 50%;
+        font-size: 12px;
+      }
+}
+
+@media only screen 
+    and (device-width : 414px) 
+    and (device-height : 736px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+      .margtop{
+        margin-top: 25px;
+      }
+    
+      .form-control{
+        height: 36px;
+        font-size: 15px;
+      }
+    
+      button#register{
+        height: 32px;
+        font-size: 13px;
+      }
+    
+      .mtop{
+        margin-top: 5%;
+      }
+    
+      img.femiu{
+        width: 220px;
+        margin-top: 4%;
+      }
+    
+      .margtop2{
+        margin-top: 10%;
+      }
+    }
+
+@media only screen and (device-width: 768px) {
+  img.femiu{
+    width: 240px;
+    margin-top: 10%!important;
+  }
+
+  .dfc{
+    margin-top: 3%;
+  }
 }

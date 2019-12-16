@@ -78,9 +78,6 @@
         'Authorization': 'Bearer ' + token,
         'Accept' : 'application/json',
         },
-        data: {
-				student_id: '1',
-			  },
         success: function (data) {
         data.forEach(row => {
           $('.profilet').append('<div class="container-fluid d-flex divstudentat"><a style="text-decoration:none; display: flex;" href="4orari.html?='+row.id+'"><img src="'+globalIMGURL+row.profile_image+'" class="imgradius"><p class="profilfont">'+row.name+'</p></a></div>');

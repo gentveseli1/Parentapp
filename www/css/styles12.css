@@ -108,3 +108,8 @@ option {
   text-align: left!important;
   /* reset to left*/
 }
+
+.spinnericon{
+  width: 40px!important;
+  height: 40px!important;
+}

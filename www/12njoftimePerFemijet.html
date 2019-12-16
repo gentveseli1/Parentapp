@@ -1,6 +1,7 @@
 
 <script src="js/base_urlJS.js"></script>
 <script src="js/includeJS.js"></script>
+<script src="js/pulltorefresh.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
   <title>NJOFTIMET2.MOB</title>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid" id="container-fluid">
 	<div inculdeWithHTML="sidebar.html"></div>
 
 		<div class="col m-0 p-0">
@@ -50,6 +51,19 @@
 			});
 		},
 		error: function (error) {
+		}
+	});
+	PullToRefresh.init({
+		mainElement: '#container-fluid', // above which element?
+		onRefresh: function(){
+		var promise = new Promise(
+			function(resolve, reject){
+			setTimeout(()=>{
+				resolve();
+			}, 1500);
+			}
+		);
+		return promise;
 		}
 	});
 </script>

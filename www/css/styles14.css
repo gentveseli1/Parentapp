@@ -100,3 +100,8 @@ button.btn:hover{
   height: 59px;
   width: 100%;
   background-color: #5cc3d6;}
+
+.spinnericon{
+  width: 40px!important;
+  height: 40px!important;
+}

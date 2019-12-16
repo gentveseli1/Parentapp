@@ -77,10 +77,11 @@ div.container{
   background-color: #ffff;
 }
 
-/*#body {
-  height: 100%;
-  width: 100%;
-}*/
+.spinnericon{
+  width: 40px!important;
+  height: 40px!important;
+}
+
 a{
 	color: white;
 }
@@ -163,4 +164,69 @@ button:hover{
 
 .inOut{
   font-family: Heebo!important;
+}
+
+@media only screen and (max-width: 360px)
+{   
+  .btn-raporti{
+    width: 50%;
+  }
+}
+
+@media only screen 
+    and (device-width : 320px) 
+    and (device-height : 568px){
+      .btn-raporti {
+        width: 56%;
+    }
+    }
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3){
+      .btn-raporti{
+        width: 48.5%;
+      }
+}
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2) {
+      .btn-raporti{
+        width: 49%;
+      }
+}
+@media only screen 
+    and (device-width : 414px) 
+    and (device-height : 736px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+}
+
+@media only screen and (device-width: 768px) {
+  #hyrje.btn{
+    width: 155px;
+    height: 35px;
+  }
+  #dalje.btn{
+    width: 155px;
+    height: 35px;
+  }
+  .btn-raporti{
+    height: 45px;
+    font-size: 22px; 
+   }
+}
+
+@media only screen and (device-width: 1024px) {
+  #hyrje.btn{
+    width: 208px;
+    height: 40px;
+  }
+  #dalje.btn{
+    width: 208px;
+    height: 40px;
+  }.btn-raporti{
+   height: 45px;
+   font-size: 22px; 
+  }
 }

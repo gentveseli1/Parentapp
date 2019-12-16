@@ -32,11 +32,6 @@ body {
   /*background: #2980B9;*/
   height: 100vh;
 }
-
-.container-fluid{
-  height: 100vh;
-}
-
 .orange{   
   font-family: Heebo;
   font-size: 18px;
@@ -181,4 +176,9 @@ input[type="date"]:valid:before {
 .gixinput{
   background-color: #fff;
   border: 1px solid #e46e38;
+}
+
+.spinnericon{
+  width: 40px!important;
+  height: 40px!important;
 }

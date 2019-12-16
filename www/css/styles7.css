@@ -92,3 +92,11 @@ margin-top:20px;
 .mt-5{
   margin-top: 5rem!important;
 }
+
+  .pagination{
+  justify-content: center!important;
+}
+.spinnericon{
+  width: 40px!important;
+  height: 40px!important;
+}
