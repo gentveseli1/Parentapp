@@ -14,6 +14,32 @@
   <link rel="stylesheet" href="css/styles7.css" type="text/css">
   <link rel="stylesheet" href="css/sidebar.css" type="text/css">
   <title>HyrjaDalja.MOB</title>
+  <script>
+	  var dateObj = new Date();
+		var month = dateObj.getUTCMonth() + 1; //months from 1-12
+		var day = dateObj.getUTCDate();
+		var year = dateObj.getUTCFullYear();
+
+		newdate = year + "-" + month + "-" + day;
+
+	  function openModal(imgSrc){
+		
+			var modal = document.getElementById("myModal");
+
+			// Get the image and insert it inside the modal - use its "alt" text as a caption
+			//var img = document.getElementById("myImg");
+			var modalImg = document.getElementById("img01");
+			var modalHyrje = document.getElementById("hyrje01");
+			var captionText = document.getElementById("caption");
+			//img.onclick = function(){
+			modal.style.display = "block";
+			modalImg.src = imgSrc;
+			// modalHyrje.innerHTML = 'tsadsad';//document.getElementById("hyrje1").textContent;
+			captionText.innerHTML = document.getElementById("hyrje1").textContent;
+		//}
+	}
+  
+  </script>
 </head>
 <body>		  
 	<!-- The Modal -->
@@ -52,65 +78,17 @@
 								
 							  </tr>
 							</thead>
-				<tbody>
-					<tr>
-						<td>Arberie</td>
-						<td id="hyrje1">11:20</td>
-						<td>H</td>
-						<td>
-							<img id="myImg" alt="" style="width: 50px; height: 50px;" src="./img/gentvesel.jpg"/>
-						</td>
-					</tr>
-					<tr>
-						<td>Era</td>
-						<td>17:20</td>
-						<td>D</td>
-						<td><img class="studfoto" src="./img/femijet.svg"/></td>
-					</tr>
-					<tr>
-						<td>Egzon</td>
-						<td>17:20</td>
-						<td>D</td>
-						<td><img class="studfoto" src="./img/femijet.svg"/></td>
-					</tr>
-					<tr>
-							<td>Era</td>
-							<td>17:20</td>
-							<td>D</td>
-							<td><img class="studfoto" src="./img/femijet.svg"/></td>
-						</tr>
-						<tr>
-							<td>Egzon</td>
-							<td>17:20</td>
-							<td>D</td>
-							<td><img class="studfoto" src="./img/femijet.svg"/></td>
-						</tr>
-						<tr>
-								<td>Era</td>
-								<td>17:20</td>
-								<td>D</td>
-								<td><img class="studfoto" src="./img/femijet.svg"/></td>
-							</tr>
-							<tr>
-								<td>Egzon</td>
-								<td>17:20</td>
-								<td>D</td>
-								<td><img class="studfoto" src="./img/femijet.svg"/></td>
-							</tr>
-						
+				<tbody class="hyrje">
+					
+				</tbody>
+				<tbody class="dalja">
+		
 
 				</tbody>
 			</table>
 		</div>
 		
-		<div class="hyrja">
 		
-		
-		</div>
-		<div class="dalja">
-		
-
-		</div>
 
 		<!-- <div class="container-fluid d-flex" style="justify-content: center;">
 			<input class="checkmark" type="radio" name="dita" value="sot"><span class="day mr-3">SOT</span><br><input class="checkmark" type="radio" name="dita" value="dje"><span class="day">DJE</span>
@@ -174,36 +152,38 @@ $('.dataTables_length').addClass('bs-select');
 			});
 
 			$.ajax({
-				url: globalURL+'entry',
+				url: 'http://127.0.0.1:8000/api/hyrje',//globalURL+'hyrje',
 				type: 'POST',
 				headers: {
 				'Authorization': 'Bearer ' + token,
 				'Accept' : 'application/json',
 				},
 				data: {
-					dita: 'sot',
-					student_id: '1'
+					date: newdate,
 				},
 				success: function (data) {
-					$('.hyrja').append('<div class="col d-flex fixpos" align="center"><p class="blue">Hyrja</p><button type="button" class="btn2">'+data[0].time+'</button></div><div class="col-12" align="center"><img src="'+globalIMGURL+data[0].photo+'" style="width: 187px; height: 187px;"></div>');
+					data.forEach(row => {
+						$('.hyrje').append('<tr><td>'+row.name+'</td><td>'+row.created_at+'</td><td>H</td><td><img id="myImg" onclick="openModal(this.src)" style="width: 50px; height: 50px;" src="'+globalIMGURL+row.photo+'"/></td></tr>');
+					})
 				},
 				error: function (error) {
 				}
 			});
 
 			$.ajax({
-				url: globalURL+'exit',
+				url: 'http://127.0.0.1:8000/api/dalje',//globalURL+'dalje',
 				type: 'POST',
 				headers: {
 				'Authorization': 'Bearer ' + token,
 				'Accept' : 'application/json',
 				},
 				data: {
-					dita: 'sot',
-					student_id: '1'
+					date: newdate,
 				},
 				success: function (data) {
-					$('.dalja').append('<div class="col d-flex fixpos2" align="center"><p class="blue">Dalja</p><button type="button" class="btn2">'+data[0].time+'</button></div><div class="col-12" align="center"><img src="'+globalIMGURL+data[0].photo+'" style="width: 187px; height: 187px;"></div>')
+					data.forEach(row => {
+						$('.hyrje').append('<tr><td>'+row.name+'</td><td>'+row.created_at+'</td><td>D</td><td><img id="myImg" onclick="openModal(this.src)" style="width: 50px; height: 50px;" src="'+globalIMGURL+row.photo+'"/></td></tr>');
+					})
 				},
 				error: function (error) {
 				}
@@ -236,26 +216,13 @@ includeHTML();
 		return promise;
 		}
 	});
-		var modal = document.getElementById("myModal");
-
-		// Get the image and insert it inside the modal - use its "alt" text as a caption
-		var img = document.getElementById("myImg");
-		var modalImg = document.getElementById("img01");
-		// var modalHyrje = document.getElementById("hyrje01");
-		var captionText = document.getElementById("caption");
-		img.onclick = function(){
-		modal.style.display = "block";
-		modalImg.src = this.src;
-		// modalHyrje.innerHTML = 'tsadsad';//document.getElementById("hyrje1").textContent;
-		captionText.innerHTML = 'Hyrja -> '+document.getElementById("hyrje1").textContent;
-	}
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
 
 	// When the user clicks on <span> (x), close the modal
 	span.onclick = function() {
-	modal.style.display = "none";
+		document.getElementById("myModal").style.display = "none";
 	}
 </script>
 </html>
