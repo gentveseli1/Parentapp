@@ -78,3 +78,11 @@ input[type="date"]:valid:before {
   width: 40px!important;
   height: 40px!important;
 }
+
+div .hamburger{
+  z-index: 9999!important;
+}
+
+.bbros-close{
+  z-index: 9999!important;
+}
