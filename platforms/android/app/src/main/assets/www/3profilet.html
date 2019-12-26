@@ -134,17 +134,7 @@
     console.log(scanner);
     
     scanner.addListener('scan', function (content) {
-      var data = [];
-      data = content.split('%');
-      protocol = data[0];
-      qrcode = data[1];
-      name = data[2];
-      birthdate = data[3];
-      parentName = data[4];
-      school = data[5];
-      classa = data[6];
-      scheduleTime = data[7];
-      scheduleHours = data[8];
+      alert(content);
       $.ajax({
         url: globalURL+'addstudent',
         type: 'POST',
@@ -153,7 +143,7 @@
           'Accept' : 'application/json',
         },
         data: {
-          protocol:protocol, qrcode:qrcode, name:name, birthdate:birthdate, parentName:parentName, school_id:school, class:classa, scheduleTime:scheduleTime, scheduleHours:scheduleHours
+          student_id: content
         },
         success: function (data) {
             $('#close').click()
